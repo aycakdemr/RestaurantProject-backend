@@ -41,11 +41,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\IDto.cs" />
+    <Compile Include="Abstract\IEntity.cs" />
+    <Compile Include="Concrete\About.cs" />
+    <Compile Include="Concrete\Comment.cs" />
+    <Compile Include="Concrete\Contact.cs" />
+    <Compile Include="Concrete\Gallery.cs" />
+    <Compile Include="Concrete\Meal.cs" />
+    <Compile Include="Concrete\Menu.cs" />
+    <Compile Include="Concrete\Reservation.cs" />
+    <Compile Include="Concrete\Staff.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Abstract\" />
-    <Folder Include="Concrete\" />
     <Folder Include="Dto\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
