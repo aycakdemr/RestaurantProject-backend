@@ -41,11 +41,40 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\IAboutService.cs" />
+    <Compile Include="Abstract\ICommentService.cs" />
+    <Compile Include="Abstract\IContactService.cs" />
+    <Compile Include="Abstract\IGalleryService.cs" />
+    <Compile Include="Abstract\IMealService.cs" />
+    <Compile Include="Abstract\IMenuService.cs" />
+    <Compile Include="Abstract\IReservationService.cs" />
+    <Compile Include="Abstract\IStaffService.cs" />
+    <Compile Include="Concrete\AboutManager.cs" />
+    <Compile Include="Concrete\CommentManager.cs" />
+    <Compile Include="Concrete\ContactManager.cs" />
+    <Compile Include="Concrete\GalleryManager.cs" />
+    <Compile Include="Concrete\MealManager.cs" />
+    <Compile Include="Concrete\MenuManager.cs" />
+    <Compile Include="Concrete\ReservationManager.cs" />
+    <Compile Include="Concrete\StaffManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Abstract\" />
-    <Folder Include="Concrete\" />
+    <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Core\Core.csproj">
+      <Project>{45e7ddec-8224-4862-a4ee-1b23d4b95d40}</Project>
+      <Name>Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataAccess\DataAccess.csproj">
+      <Project>{ce08417e-6295-46f0-be4d-10641fd1e38d}</Project>
+      <Name>DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Entities\Entities.csproj">
+      <Project>{6adfd752-39a5-4533-a7bc-765b913472d1}</Project>
+      <Name>Entities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
