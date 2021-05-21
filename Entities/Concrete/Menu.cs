@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Entities.Concrete
 {
-   public class Menu :IEntity
+    public class Menu : IEntity
     {
         public int Id { get; set; }
         public string MenuName { get; set; }

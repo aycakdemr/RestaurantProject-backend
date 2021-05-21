@@ -1,7 +1,9 @@
-﻿using Entities.Abstract;
+﻿
+using DataAccess.Abstract;
+using Entities.Abstract;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;

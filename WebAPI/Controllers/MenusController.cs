@@ -1,5 +1,6 @@
 ﻿using Business.Concrete;
-using DataAccess.Concrete.EntityFramework;
+using DataAccess.Concrete;
+
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -18,7 +19,7 @@ namespace WebAPI.Controllers
         [HttpGet("getall")]
         public IActionResult GetAll()
         {
-            var result = menuManager.GetAll();
+            var result = menuManager.getall();
             if (result.Success)
             {
                 return Ok(result);
