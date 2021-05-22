@@ -8,7 +8,7 @@ using System.Text;
 
 namespace Business.Concrete
 {
-    public class MenuManager : MenuService
+    public class MenuManager : IMenuService
     {
         IMenuDal menuDal;
 
@@ -19,7 +19,7 @@ namespace Business.Concrete
 
         public IDataResult<List<Menu>> getall()
         {
-            return new SuccessDataResult<List<Menu>>(menuDal.GetAll());
+            return new SuccessDataResult<List<Menu>>(menuDal.GetAll(),"Başarılı");
         }
     }
 }

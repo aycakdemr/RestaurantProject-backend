@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Business.Abstract
 {
-    public interface MenuService
+    public interface IMenuService
     {
         IDataResult<List<Menu>> getall();
     }
