@@ -8,11 +8,11 @@ using System.Text;
 
 namespace Business.Concrete
 {
-    public class MealService : IMealService
+    public class MealManager : IMealService
     {
         IMealDal _mealDal;
 
-        public MealService(IMealDal mealDal)
+        public MealManager(IMealDal mealDal)
         {
             _mealDal = mealDal;
         }
