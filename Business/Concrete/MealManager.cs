@@ -1,4 +1,7 @@
 ﻿using Business.Abstract;
+using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Validation;
+using Core.CrossCuttingConcerns.Validation;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -16,9 +19,10 @@ namespace Business.Concrete
         {
             _mealDal = mealDal;
         }
-
+        [ValidationAspect(typeof(MealValidator))]
         public IResult Add(Meal meal)
         {
+            ValidationTool.Validate(new MealValidator(), meal);
             _mealDal.Add(meal);
             return new SuccessResult();
         }

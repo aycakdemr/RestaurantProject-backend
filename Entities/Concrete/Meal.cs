@@ -13,6 +13,6 @@ namespace Entities.Concrete
         public int MenuId { get; set; }
         public string MealName { get; set; }
         public int MealImageId { get; set; }
-        public string MealPrice { get; set; }
+        public decimal MealPrice { get; set; }
     }
 }
