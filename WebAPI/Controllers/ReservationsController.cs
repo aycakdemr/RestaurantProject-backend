@@ -1,4 +1,5 @@
-﻿using Business.Concrete;
+﻿using Business.Abstract;
+using Business.Concrete;
 using DataAccess.Concrete;
 using Entities.Concrete;
 using Microsoft.AspNetCore.Http;
@@ -14,7 +15,12 @@ namespace WebAPI.Controllers
     [ApiController]
     public class ReservationsController : ControllerBase
     {
-        ReservationManager reservationManager = new ReservationManager(new EfReservationDal());
+        IReservationService reservationManager;
+
+        public ReservationsController(IReservationService reservationManager)
+        {
+            this.reservationManager = reservationManager;
+        }
 
         [HttpGet("getall")]
         public IActionResult GetAll()

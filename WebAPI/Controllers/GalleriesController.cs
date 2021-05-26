@@ -1,4 +1,5 @@
-﻿using Business.Concrete;
+﻿using Business.Abstract;
+using Business.Concrete;
 using DataAccess.Concrete;
 using Entities.Concrete;
 using Microsoft.AspNetCore.Http;
@@ -14,7 +15,12 @@ namespace WebAPI.Controllers
     [ApiController]
     public class GalleriesController : ControllerBase
     {
-        GalleryManager galleryManager = new GalleryManager(new EfGalleryDal());
+        IGalleryService galleryManager;
+
+        public GalleriesController(IGalleryService galleryManager)
+        {
+            this.galleryManager = galleryManager;
+        }
 
         [HttpGet("getall")]
         public IActionResult GetAll()

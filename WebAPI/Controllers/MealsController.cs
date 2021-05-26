@@ -1,4 +1,5 @@
-﻿using Business.Concrete;
+﻿using Business.Abstract;
+using Business.Concrete;
 using DataAccess.Concrete;
 using Entities.Concrete;
 using Microsoft.AspNetCore.Http;
@@ -14,7 +15,12 @@ namespace WebAPI.Controllers
     [ApiController]
     public class MealsController : ControllerBase
     {
-        MealManager mealManager = new MealManager(new EfMealDal());
+        IMealService mealManager;
+
+        public MealsController(IMealService mealManager)
+        {
+            this.mealManager = mealManager;
+        }
 
         [HttpGet("getall")]
         public IActionResult GetAll()

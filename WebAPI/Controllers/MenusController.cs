@@ -1,4 +1,5 @@
-﻿using Business.Concrete;
+﻿using Business.Abstract;
+using Business.Concrete;
 using DataAccess.Concrete;
 
 using Microsoft.AspNetCore.Http;
@@ -14,7 +15,12 @@ namespace WebAPI.Controllers
     [ApiController]
     public class MenusController : ControllerBase
     {
-        MenuManager menuManager = new MenuManager(new EfMenuDal());
+        IMenuService menuManager;
+
+        public MenusController(IMenuService menuManager)
+        {
+            this.menuManager = menuManager;
+        }
 
         [HttpGet("getall")]
         public IActionResult GetAll()

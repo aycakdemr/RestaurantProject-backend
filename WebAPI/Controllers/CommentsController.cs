@@ -1,4 +1,5 @@
-﻿using Business.Concrete;
+﻿using Business.Abstract;
+using Business.Concrete;
 using DataAccess.Concrete;
 using Entities.Concrete;
 using Microsoft.AspNetCore.Http;
@@ -14,7 +15,12 @@ namespace WebAPI.Controllers
     [ApiController]
     public class CommentsController : ControllerBase
     {
-        CommentManager commentManager = new CommentManager(new EfCommentDal());
+        ICommentService commentManager;
+
+        public CommentsController(ICommentService commentManager)
+        {
+            this.commentManager = commentManager;
+        }
 
         [HttpGet("getall")]
         public IActionResult GetAll()

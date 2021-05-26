@@ -1,4 +1,5 @@
-﻿using Business.Concrete;
+﻿using Business.Abstract;
+using Business.Concrete;
 using DataAccess.Concrete;
 using Entities.Concrete;
 using Microsoft.AspNetCore.Http;
@@ -14,7 +15,12 @@ namespace WebAPI.Controllers
     [ApiController]
     public class AboutsController : ControllerBase
     {
-        AboutManager aboutManager = new AboutManager(new EfAboutDal());
+        IAboutService aboutManager;
+
+        public AboutsController(IAboutService aboutManager)
+        {
+            this.aboutManager = aboutManager;
+        }
 
         [HttpGet("getall")]
         public IActionResult GetAll()

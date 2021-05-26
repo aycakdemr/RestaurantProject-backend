@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Business.BusinessAspects.Autofac;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Validation;
 using Core.CrossCuttingConcerns.Validation;
@@ -19,6 +20,7 @@ namespace Business.Concrete
         {
             _mealDal = mealDal;
         }
+        [SecuredOperation("admin")]
         [ValidationAspect(typeof(MealValidator))]
         public IResult Add(Meal meal)
         {

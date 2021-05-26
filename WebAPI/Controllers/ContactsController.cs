@@ -1,4 +1,5 @@
-﻿using Business.Concrete;
+﻿using Business.Abstract;
+using Business.Concrete;
 using DataAccess.Concrete;
 using Entities.Concrete;
 using Microsoft.AspNetCore.Http;
@@ -14,7 +15,12 @@ namespace WebAPI.Controllers
     [ApiController]
     public class ContactsController : ControllerBase
     {
-        ContactManager contactManager = new ContactManager(new EfContactDal());
+        IContactService contactManager;
+
+        public ContactsController(IContactService contactManager)
+        {
+            this.contactManager = contactManager;
+        }
 
         [HttpGet("getall")]
         public IActionResult GetAll()

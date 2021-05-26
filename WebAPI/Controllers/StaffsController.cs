@@ -1,4 +1,5 @@
-﻿using Business.Concrete;
+﻿using Business.Abstract;
+using Business.Concrete;
 using DataAccess.Concrete;
 using Entities.Concrete;
 using Microsoft.AspNetCore.Http;
@@ -14,7 +15,12 @@ namespace WebAPI.Controllers
     [ApiController]
     public class StaffsController : ControllerBase
     {
-        StaffManager staffManager = new StaffManager(new EfStaffDal());
+        IStaffService staffManager;
+
+        public StaffsController(IStaffService staffManager)
+        {
+            this.staffManager = staffManager;
+        }
 
         [HttpGet("getall")]
         public IActionResult GetAll()

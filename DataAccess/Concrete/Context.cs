@@ -22,7 +22,7 @@ namespace DataAccess.Concrete
         public DbSet<Reservation> Reservations { get; set; }
         public DbSet<Staff> Staffs { get; set; }
         public DbSet<User> Users { get; set; }
-        public DbSet<UserOperationClaim> userOperationClaims { get; set; }
+        public DbSet<UserOperationClaims> UserOperationClaims { get; set; }
         public DbSet<OperationClaim> OperationClaims { get; set; }
     }
 }
