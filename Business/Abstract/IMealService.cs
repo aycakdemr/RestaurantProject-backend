@@ -13,5 +13,7 @@ namespace Business.Abstract
         IResult Update(Meal meal);
         IDataResult<List<Meal>> GetAll();
         IDataResult<List<Meal>> GetById(int id);
+        IResult AddTransactionalTest(Meal meal);
+
     }
 }

@@ -29,6 +29,11 @@ namespace Business.Concrete
             return new SuccessResult();
         }
 
+        public IResult AddTransactionalTest(Meal meal)
+        {
+            throw new NotImplementedException();
+        }
+
         public IResult Delete(int id)
         {
             var value = _mealDal.Get(x => x.Id == id);
